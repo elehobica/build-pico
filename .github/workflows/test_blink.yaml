@@ -1,0 +1,35 @@
+#------------------------------------------------------
+# Copyright (c) 2025, Elehobica
+# Released under the BSD-2-Clause
+# refer to https://opensource.org/licenses/BSD-2-Clause
+#------------------------------------------------------
+
+name: Test Blink
+
+on: [push]
+
+jobs:
+  build-pico:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: tests/blink
+      - name: Build-pico
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/blink
+      - name: Build-pico2
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/blink
+          build: build2
+          platform: rp2350
+          board: pico2
+      - name: Build-pico2d
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/blink
+          build: build2d
+          cmake_options: -DPICO_PLATFORM=rp2350 -DPICO_BOARD=pico2
