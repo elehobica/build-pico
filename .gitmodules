@@ -1,0 +1,3 @@
+[submodule "tests/RPi_Pico_WAV_Player"]
+	path = tests/RPi_Pico_WAV_Player
+	url = https://github.com/elehobica/RPi_Pico_WAV_Player.git
