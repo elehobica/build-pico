@@ -21,6 +21,10 @@ inputs:
     description: 'Build directory'
     required: false
     default: 'build'
+  keep:
+    description: 'Keep build directory, 0 to delete'
+    required: false
+    default: '0'
   platform:
     description: 'Pico platform'
     required: false
@@ -44,6 +48,8 @@ runs:
     - ${{inputs.jobs}}
     - --build
     - ${{inputs.build}}
+    - --keep
+    - ${{inputs.keep}}
     - --platform
     - ${{inputs.platform}}
     - --board

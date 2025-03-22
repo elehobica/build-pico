@@ -15,6 +15,7 @@ while (( $# > 0 )); do
       echo "  -h, --help: Show this help message"
       echo "  -p, --path: target working path (default: .)"
       echo "  -b, --build: Build path (default: build)"
+      echo "  -k, --keep: Keep build path, 0 to delete (default: 0)"
       echo "  -j, --jobs: Number of jobs for make (default: number of CPU cores + 1)"
       echo "  --sdk_path: PICO_SDK_PATH (default: /home/rp2dev/pico/pico-sdk)"
       echo "  --extras_path: PICO_EXTRAS_PATH (default: /home/rp2dev/pico/pico-extras)"
@@ -34,6 +35,14 @@ while (( $# > 0 )); do
       if [[ -v 2 ]] && [[ ! "$2" =~ ^-+ ]]; then
         BUILD="$2"
         shift
+      fi
+      ;;
+    -k | --keep)
+      if [[ -v 2 ]] && [[ ! "$2" =~ ^-+ ]]; then
+        KEEP_BUILD="$2"
+        shift
+      else
+        KEEP_BUILD=1
       fi
       ;;
     -j | --jobs)
@@ -93,6 +102,9 @@ fi
 if [ -z "$BUILD" ]; then
   BUILD="build"
 fi
+if [ ! -v KEEP_BUILD ]; then
+  KEEP_BUILD=0
+fi
 if [ -z "$JOBS" ]; then
   JOBS=$(($(fgrep 'cpu cores' /proc/cpuinfo | sort -u | sed 's/.*: //') + 1))
 fi
@@ -117,11 +129,9 @@ export PICO_SDK_PATH
 export PICO_EXTRAS_PATH
 export PICO_EXAMPLES_PATH
 
-### Target directory & build directory ###
+### Target directory ###
 cd $TARGET_PATH
-if [ -d $BUILD ]; then
-  rm -rf $BUILD
-fi
+TARGET_PATH_ABS=`pwd`
 
 ### Pre check for CMakeLists.txt ###
 if [ ! -f CMakeLists.txt ]; then
@@ -130,6 +140,9 @@ if [ ! -f CMakeLists.txt ]; then
 fi
 
 ### Build ###
-mkdir $BUILD && cd $BUILD
-cmake ${PLATFORM}${BOARD}${CMAKE_OPTIONS} ..
-make -j$JOBS
+if [ $KEEP_BUILD = "0" ]; then
+  rm -rf $BUILD
+fi
+mkdir -p $BUILD && cd $BUILD
+cmake ${PLATFORM}${BOARD}${CMAKE_OPTIONS} ${TARGET_PATH_ABS}
+make -j${JOBS}
