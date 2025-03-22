@@ -1,0 +1,30 @@
+#------------------------------------------------------
+# Copyright (c) 2025, Elehobica
+# Released under the BSD-2-Clause
+# refer to https://opensource.org/licenses/BSD-2-Clause
+#------------------------------------------------------
+
+name: Test pico_spdif_dac_hpamp
+
+on: [push]
+
+jobs:
+  build-pico:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          sparse-checkout: tests/pico_spdif_dac_hpamp
+      - name: Build-pico
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/pico_spdif_dac_hpamp
+      - name: Build-pico2
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/pico_spdif_dac_hpamp
+          build: build2
+          platform: rp2350
+          board: pico2
