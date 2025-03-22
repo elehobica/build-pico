@@ -7,3 +7,6 @@
 [submodule "tests/pico_spdif_recorder"]
 	path = tests/pico_spdif_recorder
 	url = https://github.com/elehobica/pico_spdif_recorder.git
+[submodule "tests/pico_battery_op"]
+	path = tests/pico_battery_op
+	url = https://github.com/elehobica/pico_battery_op.git
