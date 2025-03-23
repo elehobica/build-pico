@@ -6,7 +6,7 @@
 
 name: Test RPi_Pico_WAV_Player
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build-pico:

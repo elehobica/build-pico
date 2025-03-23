@@ -6,7 +6,7 @@
 
 name: Test pico_spdif_dac_hpamp
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build-pico:

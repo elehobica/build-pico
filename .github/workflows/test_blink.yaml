@@ -6,7 +6,7 @@
 
 name: Test Blink
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build-pico:
