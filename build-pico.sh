@@ -129,6 +129,11 @@ export PICO_SDK_PATH
 export PICO_EXTRAS_PATH
 export PICO_EXAMPLES_PATH
 
+### Display versions ###
+cat ${PICO_SDK_PATH}/pico_sdk_version.cmake | grep "set(" | grep -v "{" | grep -v "ID"
+cmake --version
+gcc --version
+
 ### Target directory ###
 cd $TARGET_PATH
 TARGET_PATH_ABS=`pwd`
