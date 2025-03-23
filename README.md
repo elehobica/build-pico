@@ -2,6 +2,8 @@
 
 This is a GitHub Action for building projects for the Raspberry Pi Pico series.
 
+![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_RPi_Pico_WAV_Player.yml/badge.svg)
+
 ## Usage
 
 To use this GitHub Action in your workflow, add the following step to your `.github/workflows/your-workflow.yml` file:

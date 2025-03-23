@@ -4,7 +4,7 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-name: Test pico_battery_op
+name: Build Test
 
 on: [push, pull_request]
 

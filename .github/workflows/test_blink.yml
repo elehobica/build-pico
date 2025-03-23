@@ -4,7 +4,7 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-name: Test pico_spdif_recorder
+name: Build Test
 
 on: [push, pull_request]
 
@@ -15,15 +15,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
-          sparse-checkout: tests/pico_spdif_recorder
+          sparse-checkout: tests/blink
       - name: Build-pico
         uses: elehobica/build-pico@main
         with:
-          path: tests/pico_spdif_recorder
+          path: tests/blink
       - name: Build-pico2
         uses: elehobica/build-pico@main
         with:
-          path: tests/pico_spdif_recorder
+          path: tests/blink
           build: build2
           platform: rp2350
+          board: pico2
+      - name: Build-pico2d
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/blink
+          build: build2d
+          cmake_options: -DPICO_PLATFORM=rp2350 -DPICO_BOARD=pico2
