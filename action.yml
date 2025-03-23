@@ -7,6 +7,9 @@
 name: 'build-pico'
 author: 'elehobica'
 description: 'Build for Raspberry Pi Pico series'
+branding:
+  icon: 'chevrons-right'
+  color: 'green'
 
 inputs:
   path:
