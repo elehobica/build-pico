@@ -4,7 +4,7 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-name: 'build-pico'
+name: 'Build-Pico'
 author: 'elehobica'
 description: 'Build for Raspberry Pi Pico series'
 branding:
@@ -17,7 +17,7 @@ inputs:
     required: false
     default: '.'
   jobs:
-    description: 'Nuber of jobs for make'
+    description: 'Number of jobs for make'
     required: false
     default: ''
   build:

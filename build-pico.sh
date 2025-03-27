@@ -152,6 +152,6 @@ mkdir -p $BUILD && cd $BUILD
 cmake ${PLATFORM}${BOARD}${CMAKE_OPTIONS} ${TARGET_PATH_ABS}
 make -j${JOBS}
 
-### Permissinos ###
+### Permissions ###
 cd $TARGET_PATH_ABS
 chmod o+w -R $BUILD

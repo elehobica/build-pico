@@ -1,11 +1,13 @@
-# build-pico
-
-This is a GitHub Action for building projects for the Raspberry Pi Pico series.
+# Build-Pico
+This is a GitHub Action for building projects with C/C++ for the Raspberry Pi Pico series.
 
 ![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_RPi_Pico_WAV_Player.yml/badge.svg)
 
-## Usage
+## Overview
+* Pico SDK 2.1.1
+* Projects with CMakeLists.txt
 
+## Usage
 To use this GitHub Action in your workflow, add the following step to your `.github/workflows/your-workflow.yml` file:
 
 * For Raspberry Pi Pico
@@ -78,3 +80,6 @@ If the target board is Raspberry Pi Pico 2, it should be _pico2_.
 
 * cmake_options<br>
 Additional options to be given to `cmake`.
+
+## Sample scripts
+See [scripts](.github/workflows/)
