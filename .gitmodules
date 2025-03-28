@@ -13,3 +13,6 @@
 [submodule "tests/pico_level_meter"]
 	path = tests/pico_level_meter
 	url = https://github.com/elehobica/pico_level_meter.git
+[submodule "tests/blink"]
+	path = tests/blink
+	url = https://github.com/elehobica/blink.git

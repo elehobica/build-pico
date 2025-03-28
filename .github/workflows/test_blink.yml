@@ -4,7 +4,7 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-name: Build Test
+name: Build Test 1
 
 on: [push, pull_request]
 
@@ -15,6 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          submodules: recursive
           sparse-checkout: tests/blink
       - name: Build-pico
         uses: elehobica/build-pico@main
