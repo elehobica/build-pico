@@ -9,22 +9,7 @@ name: Build Test 4
 on: [push, pull_request]
 
 jobs:
-  build-pico:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-          sparse-checkout: tests/pico_spdif_dac_hpamp
-      - name: Build-pico
-        uses: elehobica/build-pico@main
-        with:
-          path: tests/pico_spdif_dac_hpamp
-      - name: Build-pico2
-        uses: elehobica/build-pico@main
-        with:
-          path: tests/pico_spdif_dac_hpamp
-          build: build2
-          platform: rp2350
-          board: pico2
+  build-pico-pico2:
+    uses: ./.github/workflows/workflow_build_all.yml
+    with:
+      path: tests/pico_spdif_dac_hpamp

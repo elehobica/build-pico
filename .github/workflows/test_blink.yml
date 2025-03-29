@@ -9,7 +9,13 @@ name: Build Test 1
 on: [push, pull_request]
 
 jobs:
-  build-pico:
+  build-pico-pico2:
+    uses: ./.github/workflows/workflow_build_all.yml
+    with:
+      path: tests/blink
+
+  # Confirmation for cmake_options instead of platform and board
+  build-pico2d:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,17 +23,6 @@ jobs:
         with:
           submodules: recursive
           sparse-checkout: tests/blink
-      - name: Build-pico
-        uses: elehobica/build-pico@main
-        with:
-          path: tests/blink
-      - name: Build-pico2
-        uses: elehobica/build-pico@main
-        with:
-          path: tests/blink
-          build: build2
-          platform: rp2350
-          board: pico2
       - name: Build-pico2d
         uses: elehobica/build-pico@main
         with:
