@@ -4,28 +4,32 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-name: Build Test 1
+name: Build All
 
-on: [push, pull_request]
+on:
+  workflow_call:
+    inputs:
+      path:
+        required: true
+        type: string
 
 jobs:
-  build-pico-pico2:
-    uses: ./.github/workflows/workflow_build_all.yml
-    with:
-      path: tests/blink
-
-  # Confirmation for cmake_options instead of platform and board
-  build-pico2d:
+  build-all:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          sparse-checkout: tests/blink
-      - name: Build-pico2d
+          sparse-checkout: ${{inputs.path}}
+      - name: Build-pico
         uses: elehobica/build-pico@main
         with:
-          path: tests/blink
-          build: build2d
-          cmake_options: -DPICO_PLATFORM=rp2350 -DPICO_BOARD=pico2
+          path: ${{inputs.path}}
+      - name: Build-pico2
+        uses: elehobica/build-pico@main
+        with:
+          path: ${{inputs.path}}
+          build: build2
+          platform: rp2350
+          board: pico2

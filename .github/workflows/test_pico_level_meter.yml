@@ -9,7 +9,7 @@ name: Build Test 6
 on: [push, pull_request]
 
 jobs:
-  build-pico:
+  build-pico2:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
