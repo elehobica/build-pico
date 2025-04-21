@@ -46,16 +46,16 @@ runs:
   image: 'Dockerfile'
   args: 
     - --path
-    - ${{inputs.path}}
+    - ${{ inputs.path }}
     - --jobs
-    - ${{inputs.jobs}}
+    - ${{ inputs.jobs }}
     - --build
-    - ${{inputs.build}}
+    - ${{ inputs.build }}
     - --keep
-    - ${{inputs.keep}}
+    - ${{ inputs.keep }}
     - --platform
-    - ${{inputs.platform}}
+    - ${{ inputs.platform }}
     - --board
-    - ${{inputs.board}}
+    - ${{ inputs.board }}
     - --cmake_options
-    - ${{inputs.cmake_options}}
+    - ${{ inputs.cmake_options }}

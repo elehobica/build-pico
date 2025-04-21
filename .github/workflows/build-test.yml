@@ -1,0 +1,39 @@
+#------------------------------------------------------
+# Copyright (c) 2025, Elehobica
+# Released under the BSD-2-Clause
+# refer to https://opensource.org/licenses/BSD-2-Clause
+#------------------------------------------------------
+
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build-binaries:
+    strategy:
+      matrix:
+        project: [blink, pico_battery_op, pico_level_meter, pico_spdif_dac_hpamp, pico_spdif_recorder, RPi_Pico_WAV_Player]
+        build: [build, build2]
+        include:
+          - build: build
+            platform: rp2040
+            board: pico
+          - build: build2
+            platform: rp2350
+            board: pico2
+        exclude:
+          - project: pico_level_meter
+            build: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Build
+        uses: elehobica/build-pico@main
+        with:
+          path: tests/${{ matrix.project }}
+          build: ${{ matrix.build }}
+          platform: ${{ matrix.platform }}
+          board: ${{ matrix.board }}
