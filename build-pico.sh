@@ -151,7 +151,13 @@ fi
 mkdir -p $BUILD && cd $BUILD
 cmake ${PLATFORM}${BOARD}${CMAKE_OPTIONS} ${TARGET_PATH_ABS}
 make -j${JOBS}
+status=$?
 
 ### Permissions ###
-cd $TARGET_PATH_ABS
-chmod o+w -R $BUILD
+if [ $status -eq 0 ]; then
+  cd $TARGET_PATH_ABS
+  chmod o+w -R $BUILD
+fi
+
+### Exit status of make ###
+exit $status

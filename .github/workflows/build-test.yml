@@ -8,6 +8,9 @@ name: Build
 
 on: [push, pull_request]
 
+env:
+  BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
+
 jobs:
   build-binaries:
     strategy:
@@ -29,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - name: Build
         uses: elehobica/build-pico@main
         with:

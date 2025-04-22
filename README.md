@@ -1,12 +1,7 @@
 # Build-Pico
 This is a GitHub Action for building projects with C/C++ for the Raspberry Pi Pico series.
 
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_blink.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_blink.yml)
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_RPi_Pico_WAV_Player.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_RPi_Pico_WAV_Player.yml)
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_pico_battery_op.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_pico_battery_op.yml)
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_pico_spdif_dac_hpamp.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_pico_spdif_dac_hpamp.yml)
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_pico_spdif_recorder.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_pico_spdif_recorder.yml)
-[![workflow](https://github.com/elehobica/build-pico/actions/workflows/test_pico_level_meter.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/test_pico_level_meter.yml)
+[![Build](https://github.com/elehobica/build-pico/actions/workflows/build-test.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/build-test.yml)
 
 ## Overview
 * Pico SDK 2.1.1
@@ -85,6 +80,3 @@ If the target board is Raspberry Pi Pico 2, it should be _pico2_.
 
 * cmake_options<br>
 Additional options to be given to `cmake`.
-
-## Sample scripts
-See [scripts](.github/workflows/)
