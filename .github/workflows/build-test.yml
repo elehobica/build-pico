@@ -32,6 +32,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          repository: elehobica/${{ matrix.project }}
+          path: tests/${{ matrix.project }}
           submodules: recursive
       - name: Build
         uses: elehobica/build-pico@main
