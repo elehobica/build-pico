@@ -4,7 +4,7 @@ This is a GitHub Action for building projects with C/C++ for the Raspberry Pi Pi
 [![Build](https://github.com/elehobica/build-pico/actions/workflows/build-test.yml/badge.svg)](https://github.com/elehobica/build-pico/actions/workflows/build-test.yml)
 
 ## Overview
-* Pico SDK 2.2.0
+* Pico SDK 2.3.0
 * Projects with CMakeLists.txt
 
 ## Usage
