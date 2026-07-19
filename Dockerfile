@@ -4,7 +4,7 @@
 # refer to https://opensource.org/licenses/BSD-2-Clause
 #------------------------------------------------------
 
-FROM elehobica/pico-sdk-dev-docker:sdk-2.1.1-1.0.0
+FROM elehobica/pico-sdk-dev-docker:sdk-2.2.0
 
 RUN mkdir -p /home/rp2dev/work
 COPY build-pico.sh /home/rp2dev/work/
