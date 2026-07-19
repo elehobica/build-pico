@@ -15,7 +15,8 @@ jobs:
   build-binaries:
     strategy:
       matrix:
-        project: [blink, pico_battery_op, pico_level_meter, pico_spdif_dac_hpamp, pico_spdif_recorder, RPi_Pico_WAV_Player]
+        #project: [blink, pico_battery_op, pico_level_meter, pico_spdif_dac_hpamp, pico_spdif_recorder, RPi_Pico_WAV_Player]
+        project: [blink, pico_level_meter, pico_spdif_dac_hpamp, pico_spdif_recorder, RPi_Pico_WAV_Player]
         build: [build, build2]
         include:
           - build: build
